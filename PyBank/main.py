@@ -47,7 +47,7 @@ with open(outputpath,'w') as csvfile:
     csvwriter.writerow(["-"*50])
     csvwriter.writerow([f"Total Months: {len(totalmonths)}"])
     csvwriter.writerow([f"Total: ${sum(nettotal)}"])
-    csvwriter.writerow([f"Average Change: ${int(sum(profitlosses)/(rowcount-1))}"])
+    csvwriter.writerow([f"Average Change: ${int(sum(profitlosses)/(len(totalmonths)-1))}"])
     csvwriter.writerow([f"Greatest Increase in Profits: {totalmonths[profitlosses.index(max(profitlosses))+1]} (${max(profitlosses)})"])
     csvwriter.writerow([f"Greatest Increase in Profits: {totalmonths[profitlosses.index(min(profitlosses))+1]} (${min(profitlosses)})"])
     

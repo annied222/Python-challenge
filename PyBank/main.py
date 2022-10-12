@@ -40,7 +40,7 @@ print(f"Total Months: {len(totalmonths)}")
 #calculating the net total
 print(f"Total: ${sum(nettotal)}")
 #finding the average change
-print(f"Average Change: ${int(sum(profitlosses)/(len(totalmonths)-1))}")
+print(f"Average Change: ${int(sum(profitlosses)/(len(profitlosses)))}")
 #finding the month with the greatest profit
 print(f"Greatest Increase in Profits: {totalmonths[profitlosses.index(max(profitlosses))+1]} (${max(profitlosses)})")
 #finding th emonth with the greatest decrease in profit

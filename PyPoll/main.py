@@ -15,11 +15,12 @@ with open(csvpath) as csvfile:
     #Header in csv
     csvheader=next(csvreader)
 
-    #Creating lists for the columns
+    #Creating lists for the columns being used
     for row in csvreader:
         ballotID.append(row[0])
         candidate.append(row[2])
     
+    #finding the number of votes for each candidate
     for i in range(len(candidate)):
         if candidate[i]=="Charles Casper Stockham":
             charlie=charlie+1
@@ -28,6 +29,7 @@ with open(csvpath) as csvfile:
         elif candidate[i]=="Raymon Anthony Doane":
             raymon=raymon+1
     
+    #finding out which canidate had the most votes
     if charlie>diana and charlie>raymon:
         winner="Charles Casper Stockham"
     elif diana>charlie and diana>raymon:
@@ -38,12 +40,15 @@ with open(csvpath) as csvfile:
 print('\n')
 print("Election Results")
 print("-"*40)
+#Total number of votes based on data
 print(f"Total Votes: {len(ballotID)}")
 print("-"*40)
+#the percentage of votes based on the total number of votes and the number of votes each candidate recieved
 print(f"Charles Casper Stokham: {round(((charlie/len(ballotID))*100),3)}% ({charlie})")
 print(f"Diana DeGette: {round(((diana/len(ballotID))*100),3)}% ({diana})")
 print(f"Raymon Anthony Doane: {round(((raymon/len(ballotID))*100),3)}% ({raymon})")
 print("-"*40)
+#finding out the winner of the election
 print(f"Winner: {winner}")
 print("-"*40)
 print('\n')
@@ -62,5 +67,5 @@ with open(outputpath,'w') as csvfile:
     csvwriter.writerow([f"Diana DeGette: {round(((diana/len(ballotID))*100),3)}% ({diana})"])
     csvwriter.writerow([f"Raymon Anthony Doane: {round(((raymon/len(ballotID))*100),3)}% ({raymon})"])
     csvwriter.writerow(["-"*40])
-    csvwriter.writerow(f"Winner: {winner}")
+    csvwriter.writerow([f"Winner: {winner}"])
     csvwriter.writerow(["-"*40])
